@@ -72,6 +72,8 @@ print(b) # [9 9 9]
 print(a) # [0 9 9] ,stay unchanged.
 
 ####### Linear Algebra
+
+# Matrix multiplication
 a = np.full((3,2), 3)
 print(a)
 b = np.ones((2,3))
@@ -81,3 +83,40 @@ mul_ba = np.matmul(b,a)
 print(mul_ab)
 print(mul_ba)
 
+
+### Reorganizeing arrays
+# reshape
+a = np.array([[1,2,3],[4,5,6]])
+print(a)
+print(a.shape) # (2, 3)
+b = a.reshape((3,2))
+print(b)
+print(b.shape) # (3, 2)
+
+# vertically stack
+r1 = np.array([1,2,3])
+r2 = np.array([4,5,6])
+m1 = np.vstack([r1,r2])
+print(m1)
+m1 = np.vstack([m1,m1])
+print(m1)
+
+# Horizontal stack
+c1 = np.array([1,1,1])
+c2 = np.array([2,2,2])
+m2 = np.hstack([c1,c2])
+print(m2)
+
+### Miscellaneous
+# Load data from file
+print("Load data from file")
+data = np.genfromtxt('/harddisk1/liangzhao/Projects/pytest/data.txt', delimiter=',')
+data = data.astype('int32') # convert the data type to int32
+print(data)
+data_copy = data[data%2 != 1]
+print(data_copy)
+
+# get the element with a list of index
+data2 = np.array((1,2,3,4,5,6))
+data2 = data2[[0,1,-1]]
+print(data2)
