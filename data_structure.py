@@ -38,8 +38,11 @@ def demo_list() -> None:
     #assert a[1] == 10 # check that 10 is now at index 1
     popped = a.pop()  # remove and return the last element, equal to a.pop(-1)
     print("popped:", popped, "result:", a)
-    a.extend([7, 8])
+    a.extend([7, 8]) # extend the list by adding the elements of the iterable to the end of the list
     print("after extend:", a)
+    b.sort()
+    a.extend(b) # extend the list by adding the elements of the iterable to the end of the list
+    print("after extend b:", a)
 
 def demo_deque_counter_defaultdict() -> None:
     """Other useful collections: deque, Counter, defaultdict."""
