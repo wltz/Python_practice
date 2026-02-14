@@ -16,15 +16,15 @@ import sys
 def demo_list() -> None:
     """Lists: ordered, mutable, allow duplicates."""
     print("--- list demo ---")
-    b = []
-    b.append(1)
+    b = [] # create a new list
+    b.append(1) # add an element to the end of the list
     b.append(2)
     b.append(3)
     print("b:", b)
     print("b length:", len(b))
-    b.sort()
+    b.sort() # sort the list in ascending order
     print("b sorted:", b)
-    b.sort(reverse=True)
+    b.sort(reverse=True) # sort the list in descending order
     print("b reversed:", b)
     a: List[int] = [1, 2, 3]
     print("initial:", a)
@@ -32,7 +32,8 @@ def demo_list() -> None:
     print("after append a element at the end of list:", a)
     a.insert(1, 10) # insert a new element at index 1, shifts items to the right
     print("after insert at index 1:", a)
-    a.remove(10)  # remove the first occurrence of 10
+    a.remove(10)  # remove the FIRST occurrence of 10
+    a[0] = 1 # set the first element to 1
     if a.remove(1):
         print("removed 1 from the list")
     #assert a[1] == 10 # check that 10 is now at index 1
@@ -43,6 +44,8 @@ def demo_list() -> None:
     b.sort()
     a.extend(b) # extend the list by adding the elements of the iterable to the end of the list
     print("after extend b:", a)
+    a.reverse() # reverse the list in place
+    print("after reverse:", a)
 
 def demo_deque_counter_defaultdict() -> None:
     """Other useful collections: deque, Counter, defaultdict."""
