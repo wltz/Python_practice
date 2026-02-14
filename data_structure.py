@@ -16,6 +16,11 @@ import sys
 def demo_list() -> None:
     """Lists: ordered, mutable, allow duplicates."""
     print("--- list demo ---")
+    b:[] = []
+    b.append(1)
+    b.append(2)
+    b.append(3)
+    print("b:", b)
     a: List[int] = [1, 2, 3]
     print("initial:", a)
     a.append(4)
