@@ -21,6 +21,11 @@ def demo_list() -> None:
     b.append(2)
     b.append(3)
     print("b:", b)
+    print("b length:", len(b))
+    b.sort()
+    print("b sorted:", b)
+    b.sort(reverse=True)
+    print("b reversed:", b)
     a: List[int] = [1, 2, 3]
     print("initial:", a)
     a.append(4)
