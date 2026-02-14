@@ -13,6 +13,35 @@ from typing import Any, Dict, Iterable, List, Set, Tuple
 import sys
 import re
 
+def init_data_structure() -> None:
+    """Initialize data structures"""
+    print("--- init a list ---")
+    list1 = []
+    print("list1:", list1)
+    list2 = list()
+    list2 = [1, 2, 3] # create a list with the elements 1, 2, 3 
+    print("list2:", list2)
+    print("--- init a set ---")
+    set1 = set()
+    set1 = {1, 2, 3} # create a set with the elements 1, 2, 3
+    print("set1:", set1)
+    print("--- init a dictionary ---")
+    dict1 = dict()
+    dict1 = {"a": 1, "b": 2} # create a dictionary with the key-value pairs "a": 1, "b": 2
+    print("dict1:", dict1)
+    print("--- init a deque ---")
+    deque1 = deque()
+    deque1 = deque([1, 2, 3]) # create a deque with the elements 1, 2, 3
+    print("deque1:", deque1)
+    queue = deque(maxlen=3)
+    queue.append(1)
+    queue.append(2)
+    queue.append(3)
+    print("queue:", queue)
+    while queue:  # while queue has elements(not empty)
+        queue.popleft()
+        print("queue after popleft:", queue)
+
 def char_demo() -> None:
     """Character demo"""
     print("--- character demo ---")
@@ -192,6 +221,17 @@ def demo_set() -> None:
     s.discard(10)  # no error if missing
     print("after discard(10):", s)
 
+    print("Names to avoid using as variables: " +
+                "set, list, dict, str, int, float, type, id, sum, min, max, etc.")
+    str = "hello"
+    set1 = set()
+    for c in str:
+        if c not in set1:
+            set1.add(c)
+            print("added character:", c)
+        else:
+            print("duplicate character:", c)
+    print("set1:", set1)
 
 def demo_dict() -> None:
     """Dictionaries: key->value mappings."""
@@ -295,12 +335,13 @@ def run_quick_asserts() -> None:
 
 def main() -> None:
     print("Data Structures quick reference\n")
+    init_data_structure()
     #char_demo()
     #string_demo()
     #demo_list()
-    demo_deque_counter_defaultdict()
+    #demo_deque_counter_defaultdict()
     # demo_tuple()
-    # demo_set()
+    #demo_set()
     # demo_dict()
     # demo_namedtuple_and_dataclass()
 
