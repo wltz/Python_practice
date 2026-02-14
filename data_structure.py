@@ -235,6 +235,13 @@ def demo_set() -> None:
 
 def demo_dict() -> None:
     """Dictionaries: key->value mappings."""
+    # Add a new key, value pair
+    # Get value by the key
+    # Remove key, value pair
+    # Iterate through the key, value pair .items()
+    # Get the list of keys, 
+    # Get the list of values
+
     print("--- dict demo ---")
     d: Dict[str, int] = {"a": 1, "b": 2}
     print("initial dict:", d)
@@ -265,6 +272,19 @@ def demo_dict() -> None:
     print("--iteration over values:")
     for v in d.values():
         print("value:", v)
+
+    dict1 = dict[int, set]()
+    dict1[1] = {1,2,3}
+    dict1[2] = {2,3,4}
+    print("dict1 size", len(dict1))        
+    for k, v in dict1.items():
+        print("key:", k, "value:", v)
+
+    for key in dict1.keys():
+        print("key:", key)
+
+    for val in dict1.values():
+        print("value:", val)
 
 
 def demo_namedtuple_and_dataclass() -> None:
@@ -335,14 +355,14 @@ def run_quick_asserts() -> None:
 
 def main() -> None:
     print("Data Structures quick reference\n")
-    init_data_structure()
+    #init_data_structure()
     #char_demo()
     #string_demo()
     #demo_list()
     #demo_deque_counter_defaultdict()
     # demo_tuple()
     #demo_set()
-    # demo_dict()
+    demo_dict()
     # demo_namedtuple_and_dataclass()
 
     #demo_mutability_and_copying()
