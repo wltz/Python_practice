@@ -11,7 +11,52 @@ from collections import namedtuple, deque, Counter, defaultdict
 from dataclasses import dataclass
 from typing import Any, Dict, Iterable, List, Set, Tuple
 import sys
+import re
 
+def string_demo() -> None:
+    """String demo"""
+    print("--- string demo ---")
+    s = "Hello, World!"
+    print("s:", s)
+    print("s length:", len(s))
+    print("s type:", type(s))
+    print("s is string:", isinstance(s, str))
+    print("s is not string:", isinstance(s, int))
+    subString = s[0:5] # get the substring from index 0 to 5, not including index 5
+    print("subString:", subString)
+    subString = s[6:] # get the substring from index 6 to the end of the string
+    print("subString:", subString)
+    subString = s[-5:] # get the last 5 characters of the string
+    print("subString:", subString)
+    subString = s[::-1] # reverse the string
+    print("subString:", subString)
+    subString = s[::2] # get every other character from the string
+    print("subString:", subString)
+    lst_str = s.split(',') # split the string into a list of substrings
+    print("lst_str:", lst_str)
+    s.replace(',', ' ') # replace the comma with a space
+    print("s replaced:", s)
+    print("s is alphanumeric:", s.isalnum())
+    print("sring is alpha:", "Hello".isalpha())
+    print("string is digit:", "123".isdigit())
+    print("string is lowercase:", "hello".islower())
+    print("string is uppercase:", "HELLO".isupper())
+    rand_str = "abc123ABC,456 def@"
+    clean_str = ''.join(char for char in rand_str if char.isalnum())
+    print("clean_str:", clean_str)
+    upper_str = "abc".upper()
+    print("converted abc to uppercase:", upper_str)
+    lower_str = "ABC".lower()
+    print("converted ABC to lowercase:", lower_str)
+    
+    # s.join(' ') # join the list of substrings into a string
+    # print("s joined:", s)
+    # s.replace('World', 'Python') # replace the substring 'World' with 'Python'
+    # print("s replaced:", s)
+    # s.strip() # remove the leading and trailing whitespace from the string
+    # print("s stripped:", s)
+    # s.lower() # convert the string to lowercase
+    # print("s lowercase:", s)
 
 def demo_list() -> None:
     """Lists: ordered, mutable, allow duplicates."""
@@ -193,7 +238,8 @@ def run_quick_asserts() -> None:
 
 def main() -> None:
     print("Data Structures quick reference\n")
-    demo_list()
+    string_demo()
+    #demo_list()
     # demo_deque_counter_defaultdict()
     # demo_tuple()
     # demo_set()
