@@ -16,6 +16,8 @@ import re
 def char_demo() -> None:
     """Character demo"""
     print("--- character demo ---")
+    print("--- Python does not have Character type ---")
+    print("--- We can use string of length 1 to represent a character ---")
     c = 'a'
     print("char:", c)
     print("char type:", type(c))
@@ -116,22 +118,55 @@ def demo_list() -> None:
 
 def demo_deque_counter_defaultdict() -> None:
     """Other useful collections: deque, Counter, defaultdict."""
+    # Adda new element: appendleft(0) or append(4)
+    # Insert an element at a specific index: insert(1, 0)
+    # Get the first element: leftmost element
+    # Get the last element: rightmost element
+    # Remove an element: pop() or popleft()
+    # Set the size of the deque: maxlen=3
     print("--- deque / Counter / defaultdict demo ---")
     dq = deque([1, 2, 3])
+    print("deque:", dq)
     dq.appendleft(0)
     print("deque after appendleft:", dq)
-    dq.pop()
+    dq.append(4) # add an element to the end of the deque
+    print("deque after append:", dq)
+    dq.pop() # remove and return the last element, equal to dq.pop(-1); Similar to list.pop()
     print("deque after pop:", dq)
-
+    dq.popleft() # remove and return the first element, equal to dq.popleft(); Similar to list.pop(0)
+    print("deque after popleft:", dq)
     words = ["apple", "banana", "apple", "cherry"]
     c = Counter(words)
     print("counter:", c)
     assert c["apple"] == 2
 
-    dd = defaultdict(list)
-    dd["a"].append(1)
-    dd["b"].extend([2, 3])
-    print("defaultdict:", dict(dd))
+    dq.rotate(1) # rotate the deque to the right by 1 position
+    print("deque after rotate:", dq)
+    dq.rotate(-1) # rotate the deque to the left by 1 position
+    print("deque after rotate:", dq)
+
+    # deque as a stack
+    print("--- deque as a stack ---")
+    stack = deque(maxlen=3)
+    stack.append(1)
+    stack.append(2)
+    stack.append(3)
+    print("stack:", stack)
+    stack.pop()
+    print("stack after pop:", stack)
+
+    # deque as a queue
+    print("--- deque as a queue ---")
+    queue = deque(maxlen=3)
+    queue.append(1)
+    queue.append(2)
+    queue.append(3)
+    queue.append(4) # The size of the queue is 3, so the first element is removed when a new element is added
+    print("queue:", queue)
+    print("queue length:", len(queue))
+    queue.popleft()
+    print("queue after popleft:", queue)
+
 
 def demo_tuple() -> None:
     """Tuples: ordered, immutable. Good for fixed collections."""
@@ -260,10 +295,10 @@ def run_quick_asserts() -> None:
 
 def main() -> None:
     print("Data Structures quick reference\n")
-    char_demo()
+    #char_demo()
     #string_demo()
     #demo_list()
-    # demo_deque_counter_defaultdict()
+    demo_deque_counter_defaultdict()
     # demo_tuple()
     # demo_set()
     # demo_dict()
