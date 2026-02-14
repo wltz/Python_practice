@@ -13,6 +13,25 @@ from typing import Any, Dict, Iterable, List, Set, Tuple
 import sys
 import re
 
+def char_demo() -> None:
+    """Character demo"""
+    print("--- character demo ---")
+    c = 'a'
+    print("char:", c)
+    print("char type:", type(c))
+    print("char is string:", isinstance(c, str))
+    print("char is not string:", isinstance(c, int))
+    print("char is alphanumeric:", c.isalnum())
+    print("char is alpha:", c.isalpha())
+    print("char is digit:", c.isdigit())
+    print("char is lowercase:", c.islower())
+    print("char is uppercase:", c.isupper())
+    print("char is whitespace:", c.isspace())
+    #print("char is punctuation:", c.ispunct())
+    print("char is printable:", c.isprintable())
+    print("char is digit:", c.isdigit())
+    print("char is digit:", c.isdigit())
+
 def string_demo() -> None:
     """String demo"""
     print("--- string demo ---")
@@ -42,13 +61,16 @@ def string_demo() -> None:
     print("string is lowercase:", "hello".islower())
     print("string is uppercase:", "HELLO".isupper())
     rand_str = "abc123ABC,456 def@"
-    clean_str = ''.join(char for char in rand_str if char.isalnum())
+    clean_str = ''.join(c for c in rand_str if c.isalnum())
     print("clean_str:", clean_str)
     upper_str = "abc".upper()
     print("converted abc to uppercase:", upper_str)
     lower_str = "ABC".lower()
     print("converted ABC to lowercase:", lower_str)
-    
+    rand_str1 = "abc123ABC,456 def@"
+    clean_str1 = re.sub(fr"[^0-9a-zA-Z]", "", rand_str1)
+    print("clean_str1:", clean_str1)
+
     # s.join(' ') # join the list of substrings into a string
     # print("s joined:", s)
     # s.replace('World', 'Python') # replace the substring 'World' with 'Python'
@@ -238,7 +260,8 @@ def run_quick_asserts() -> None:
 
 def main() -> None:
     print("Data Structures quick reference\n")
-    string_demo()
+    char_demo()
+    #string_demo()
     #demo_list()
     # demo_deque_counter_defaultdict()
     # demo_tuple()
