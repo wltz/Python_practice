@@ -12,6 +12,7 @@ from dataclasses import dataclass
 from typing import Any, Dict, Iterable, List, Set, Tuple
 import sys
 import re
+import heapq
 
 def init_data_structure() -> None:
     """Initialize data structures"""
@@ -276,6 +277,7 @@ def demo_dict() -> None:
     dict1 = dict[int, set]()
     dict1[1] = {1,2,3}
     dict1[2] = {2,3,4}
+
     print("dict1 size", len(dict1))        
     for k, v in dict1.items():
         print("key:", k, "value:", v)
@@ -285,6 +287,22 @@ def demo_dict() -> None:
 
     for val in dict1.values():
         print("value:", val)
+
+    print("--- build hashmap ---")
+    nums = [1, 2, 2, 3, 1, 2, 4]
+    counts = {}
+
+    for n in nums: 
+        counts[n] = counts.get(n, 0) + 1 # map.get(key, default)
+
+    print(counts)  # {1: 2, 2: 3, 3: 1, 4: 1}    
+
+    counts1 = defaultdict(int)
+
+    for n in nums:
+        counts1[n] += 1
+
+    print(dict(counts1))  # {1: 2, 2: 3, 3: 1, 4: 1}    
 
 
 def demo_namedtuple_and_dataclass() -> None:
@@ -334,6 +352,27 @@ def test_iteration() -> None:
         print("dict iteration:", k, v)
         pass    
 
+def test_heapq() -> None:
+    print("--- test heapq ---")
+    nums = [3,1,2,6,9,8,5]
+
+    heap = []
+    for n in nums:
+        heapq.heappush(heap, n)
+    
+    print("heap size after heappush:", len(heap))
+
+    sorted_asc = []
+    while heap:
+        sorted_asc.append(heapq.heappop(heap))
+
+    print("heap size:", len(heap))
+
+    sorted_desc = []
+
+
+    print(sorted_asc)        
+
 def run_quick_asserts() -> None:
     """Extra programmatic checks that will raise if behavior is unexpected."""
     # list slicing creates a new list
@@ -362,7 +401,8 @@ def main() -> None:
     #demo_deque_counter_defaultdict()
     # demo_tuple()
     #demo_set()
-    demo_dict()
+    #demo_dict()
+    test_heapq()
     # demo_namedtuple_and_dataclass()
 
     #demo_mutability_and_copying()
