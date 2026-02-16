@@ -23,6 +23,17 @@ def iterate_list():
     for i in lst[1:]:  # iterate with slice
         print("element in list with slice:", i)    
 
+def iterate_list_reverse():
+    lst = []
+    lst.append(3)
+    lst.append(5)
+    lst.append(7)
+
+    for n in reversed(lst):
+        print("element in list in reverse order:", n)   
+    
+    for i in range(len(lst)-1, -1, -1):
+        print("ith element in list in reverse order:", lst[i])
 
 def iterate_dict():
     hm = {}
@@ -78,7 +89,8 @@ def matrix_test(m:List[List[int]]):
     return matrix
 
 if __name__ == "__main__":
-    iterate_list()
+    iterate_list_reverse()
+    #iterate_list()
     #iterate_dict()
     #heapq_test()
     matrix = [
