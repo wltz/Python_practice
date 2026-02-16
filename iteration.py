@@ -20,6 +20,9 @@ def iterate_list():
     for i in range(1,len(lst)):
         print("ith index of list", i, lst[i])
 
+    for i in lst[1:]:  # iterate with slice
+        print("element in list with slice:", i)    
+
 
 def iterate_dict():
     hm = {}
@@ -75,7 +78,7 @@ def matrix_test(m:List[List[int]]):
     return matrix
 
 if __name__ == "__main__":
-    #iterate_list()
+    iterate_list()
     #iterate_dict()
     #heapq_test()
     matrix = [
@@ -83,4 +86,4 @@ if __name__ == "__main__":
     [4, 5, 6],
     [7, 8, 9],
     ]
-    matrix_test(matrix)
+    #matrix_test(matrix)
