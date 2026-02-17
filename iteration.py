@@ -24,6 +24,14 @@ def iterate_list():
         print("element in list with slice:", i)    
 
 def iterate_list_reverse():
+    """
+    reversed(lst) returns a new list in reverse order.
+    range(len(lst)-1, -1, -1) iterates from the last index to the first index.
+    range(start, stop, step)
+    Produces values from start up to but not including stop.
+    start is inclusive, stop is exclusive.
+    step is the increment. Default is 1, negative value means reverse order.
+    """
     lst = []
     lst.append(3)
     lst.append(5)
@@ -48,7 +56,17 @@ def iterate_dict():
         print("key in map:", k)
 
     for v in hm.values():
-        print("val in map:", v)            
+        print("val in map:", v)         
+
+    if 1 in hm.keys():
+        print("key 1 is in map")
+    else:
+        print("key 1 is not in map")
+
+    if 1 in hm:
+        print("key 1 is in map")
+    else:
+        print("key 1 is not in map")
 
 
 def heapq_test():
@@ -89,9 +107,9 @@ def matrix_test(m:List[List[int]]):
     return matrix
 
 if __name__ == "__main__":
-    iterate_list_reverse()
+    #iterate_list_reverse()
     #iterate_list()
-    #iterate_dict()
+    iterate_dict()
     #heapq_test()
     matrix = [
     [1, 2, 3],
