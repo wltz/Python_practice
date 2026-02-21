@@ -35,7 +35,7 @@ def iterate_list_reverse():
     lst = []
     lst.append(3)
     lst.append(5)
-    lst.append(7)
+    lst.append(7)   
 
     for n in reversed(lst):
         print("element in list in reverse order:", n)   
